@@ -15,4 +15,9 @@ class BasketPage(BasePage):
         self.url = url
 
     def should_be_no_items_in_cart(self):
-        assert "Your basket is empty" in self.browser.find_element(By.XPATH, "//p[contains(text(), 'Your basket is empty.')]").text
+        assert (
+            "Your basket is empty"
+            in self.browser.find_element(
+                By.XPATH, "//p[contains(text(), 'Your basket is empty.')]"
+            ).text
+        )
