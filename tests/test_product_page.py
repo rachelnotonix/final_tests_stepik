@@ -54,6 +54,5 @@ def test_message_disappeared_after_adding_product_to_basket(browser):
     page.open()
     add_basket = browser.find_element(*ProductPageLocators.ADD_BASKET_BUTTON)
     add_basket.click()
-    time.sleep(1)
     #page.solve_quiz_and_get_code()
     page.should_be_disappeared()
