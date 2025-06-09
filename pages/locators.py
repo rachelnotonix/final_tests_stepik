@@ -18,3 +18,5 @@ class ProductPageLocators():
     MESSAGE_ADDED_ITEM = (By.XPATH, "(//div[@class='alertinner ']/strong)[1]")
     #локатор для стоимости корзины
     VALUE_OF_BASKET = (By.XPATH, "//div[@class='alertinner ']/p/strong")
+    #локатор, что книга добавлена в корзину успешно
+    SUCCESS_MESSAGE = (By.XPATH, "//*[contains(text(), 'has been added to your basket')]")

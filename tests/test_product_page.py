@@ -26,6 +26,34 @@ def test_guest_can_add_product_to_basket(browser, link):
     add_basket = browser.find_element(*ProductPageLocators.ADD_BASKET_BUTTON)
     add_basket.click()
     page.solve_quiz_and_get_code()
-    #time.sleep(120)
     page.should_be_correct_name_of_product_in_basket()
     page.should_be_correct_price_in_basket()
+
+@pytest.mark.xfail
+def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
+    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-shellcoders-handbook_209/"
+    page = ProductPage(browser, link)
+    page.open()
+    page.should_be_product_link()
+    add_basket = browser.find_element(*ProductPageLocators.ADD_BASKET_BUTTON)
+    add_basket.click()
+    #page.solve_quiz_and_get_code()
+    page.should_not_be_success_message()
+
+def test_guest_cant_see_success_message(browser):
+    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-shellcoders-handbook_209/"
+    page = ProductPage(browser, link)
+    page.open()
+    page.should_be_product_link()
+    page.should_not_be_success_message()
+
+@pytest.mark.xfail
+def test_message_disappeared_after_adding_product_to_basket(browser):
+    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-shellcoders-handbook_209/"
+    page = ProductPage(browser, link)
+    page.open()
+    add_basket = browser.find_element(*ProductPageLocators.ADD_BASKET_BUTTON)
+    add_basket.click()
+    time.sleep(1)
+    #page.solve_quiz_and_get_code()
+    page.should_be_disappeared()
