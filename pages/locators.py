@@ -20,3 +20,8 @@ class ProductPageLocators():
     VALUE_OF_BASKET = (By.XPATH, "//div[@class='alertinner ']/p/strong")
     #локатор, что книга добавлена в корзину успешно
     SUCCESS_MESSAGE = (By.XPATH, "//*[contains(text(), 'has been added to your basket')]")
+
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BASKET_BUTTON_PAGE = (By.XPATH, "//a[@class='btn btn-default']")
